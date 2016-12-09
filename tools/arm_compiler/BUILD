@@ -32,6 +32,8 @@ cc_toolchain_suite(
     toolchains = {
         "armeabi-v7a|gcc": "cc-compiler-armeabi-v7a",
         "k8|compiler": "cc-compiler-k8",
+	"darwin|compiler": ":cc-compiler-darwin",
+
     },
 )
 
@@ -94,4 +96,18 @@ cc_toolchain(
     static_runtime_libs = [":empty"],
     strip_files = ":empty",
     supports_param_files = 1,
+)
+
+cc_toolchain(
+    name = "cc-compiler-darwin",
+    all_files = ":empty",
+    compiler_files = ":empty",
+    cpu = "darwin",
+    dwp_files = ":empty",
+    dynamic_runtime_libs = [":empty"],
+    linker_files = ":empty",
+    objcopy_files = ":empty",
+    static_runtime_libs = [":empty"],
+    strip_files = ":empty",
+    supports_param_files = 0,
 )
