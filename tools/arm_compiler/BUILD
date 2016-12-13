@@ -13,17 +13,17 @@ filegroup(
     srcs = [
         ":cc-compiler-armeabi-v7a",
         ":cc-compiler-k8",
-        ":linaro_linux_all_files",
-        "@org_linaro_components_toolchain_gcc_5_3_1//:compiler_components",
+        ":gcc_arm_none_all_files",
+        "@toolchain_gcc_arm_none_darwin//:compiler_components",
     ],
 )
 
 filegroup(
     name = "srcs",
     srcs = glob(["**"]) + [
-        "//src/test/shell/bazel/testdata/bazel_toolchain_test_data/tools/arm_compiler/linaro_linux_gcc:srcs",
+        "//tools/arm_compiler/arm_none_eabi:srcs",
     ],
-    visibility = ["//src/test/shell/bazel/testdata/bazel_toolchain_test_data:__pkg__"],
+    visibility = ["//hello:__pkg__"],
 )
 
 cc_toolchain_suite(
@@ -38,29 +38,29 @@ cc_toolchain_suite(
 )
 
 filegroup(
-    name = "linaro_linux_all_files",
+    name = "gcc_arm_none_all_files",
     srcs = [
-        "//tools/arm_compiler/linaro_linux_gcc:tool-wrappers",
-        "@org_linaro_components_toolchain_gcc_5_3_1//:compiler_pieces",
+        "//tools/arm_compiler/arm_none_eabi:tool-wrappers",
+        "@toolchain_gcc_arm_none_darwin//:compiler_pieces",
     ],
 )
 
 filegroup(
-    name = "linaro_linux_linker_files",
+    name = "gcc_arm_none_linker_files",
     srcs = [
-        "//tools/arm_compiler/linaro_linux_gcc:ar",
-        "//tools/arm_compiler/linaro_linux_gcc:gcc",
-        "//tools/arm_compiler/linaro_linux_gcc:ld",
-        "@org_linaro_components_toolchain_gcc_5_3_1//:compiler_pieces",
+        "//tools/arm_compiler/arm_none_eabi:ar",
+        "//tools/arm_compiler/arm_none_eabi:gcc",
+        "//tools/arm_compiler/arm_none_eabi:ld",
+        "@toolchain_gcc_arm_none_darwin//:compiler_pieces",
     ],
 )
 
 filegroup(
-    name = "linaro_linux_compiler_files",
+    name = "gcc_arm_none_compiler_files",
     srcs = [
-        "//tools/arm_compiler/linaro_linux_gcc:as",
-        "//tools/arm_compiler/linaro_linux_gcc:gcc",
-        "//tools/arm_compiler/linaro_linux_gcc:ld",
+        "//tools/arm_compiler/arm_none_eabi:as",
+        "//tools/arm_compiler/arm_none_eabi:gcc",
+        "//tools/arm_compiler/arm_none_eabi:ld",
     ],
 )
 
@@ -71,15 +71,15 @@ filegroup(
 
 cc_toolchain(
     name = "cc-compiler-armeabi-v7a",
-    all_files = ":linaro_linux_all_files",
-    compiler_files = ":linaro_linux_compiler_files",
+    all_files = ":gcc_arm_none_all_files",
+    compiler_files = ":gcc_arm_none_compiler_files",
     cpu = "armeabi-v7a",
     dwp_files = ":empty",
     dynamic_runtime_libs = [":empty"],
-    linker_files = ":linaro_linux_linker_files",
-    objcopy_files = "//tools/arm_compiler/linaro_linux_gcc:objcopy",
+    linker_files = ":gcc_arm_none_linker_files",
+    objcopy_files = "//tools/arm_compiler/arm_none_eabi:objcopy",
     static_runtime_libs = [":empty"],
-    strip_files = "//tools/arm_compiler/linaro_linux_gcc:strip",
+    strip_files = "//tools/arm_compiler/arm_none_eabi:strip",
     supports_param_files = 1,
     visibility = ["//visibility:public"],
 )
@@ -111,3 +111,4 @@ cc_toolchain(
     strip_files = ":empty",
     supports_param_files = 0,
 )
+

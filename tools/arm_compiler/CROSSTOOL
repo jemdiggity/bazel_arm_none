@@ -4,7 +4,7 @@ default_target_cpu: "armeabi-v7a"
 
 default_toolchain {
   cpu: "armeabi-v7a"
-  toolchain_identifier: "clang_linux_armhf"
+  toolchain_identifier: "gcc_arm_none_eabi"
 }
 
 default_toolchain {
@@ -34,68 +34,74 @@ toolchain {
   target_libc: "glibc_2.19"
   target_cpu: "armeabi-v7a"
   target_system_name: "arm_a15"
-  toolchain_identifier: "clang_linux_armhf"
+  toolchain_identifier: "gcc_arm_none_eabi"
 
-  tool_path { name: "ar" path: "linaro_linux_gcc/arm-linux-gnueabihf-ar" }
-  tool_path { name: "compat-ld" path: "linaro_linux_gcc/arm-linux-gnueabihf-ld" }
-  tool_path { name: "cpp" path: "linaro_linux_gcc/arm-linux-gnueabihf-gcc" }
-  tool_path { name: "dwp" path: "linaro_linux_gcc/arm-linux-gnueabihf-dwp" }
-  tool_path { name: "gcc" path: "linaro_linux_gcc/arm-linux-gnueabihf-gcc" }
-  tool_path { name: "gcov" path: "arm-frc-linux-gnueabi/arm-frc-linux-gnueabi-gcov-4.9" }
+  tool_path { name: "ar" path: "arm_none_eabi/arm-none-eabi-ar" }
+  tool_path { name: "compat-ld" path: "arm_none_eabi/arm-none-eabi-ld" }
+  tool_path { name: "cpp" path: "arm_none_eabi/arm-none-eabi-gcc" }
+  tool_path { name: "dwp" path: "arm_none_eabi/arm-none-eabi-dwp" }
+  tool_path { name: "gcc" path: "arm_none_eabi/arm-none-eabi-gcc" }
+  tool_path { name: "gcov" path: "arm_none_eabi/arm-none-eabi-gcov" }
   # C(++) compiles invoke the compiler (as that is the one knowing where
   # to find libraries), but we provide LD so other rules can invoke the linker.
-  tool_path { name: "ld" path: "linaro_linux_gcc/arm-linux-gnueabihf-ld" }
-  tool_path { name: "nm" path: "linaro_linux_gcc/arm-linux-gnueabihf-nm" }
-  tool_path { name: "objcopy" path: "linaro_linux_gcc/arm-linux-gnueabihf-objcopy" }
+  tool_path { name: "ld" path: "arm_none_eabi/arm-none-eabi-ld" }
+  tool_path { name: "nm" path: "arm_none_eabi/arm-none-eabi-nm" }
+  tool_path { name: "objcopy" path: "arm_none_eabi/arm-none-eabi-objcopy" }
   objcopy_embed_flag: "-I"
   objcopy_embed_flag: "binary"
-  tool_path { name: "objdump" path: "linaro_linux_gcc/arm-linux-gnueabihf-objdump" }
-  tool_path { name: "strip" path: "linaro_linux_gcc/arm-linux-gnueabihf-strip" }
+  tool_path { name: "objdump" path: "arm_none_eabi/arm-none-eabi-objdump" }
+  tool_path { name: "strip" path: "arm_none_eabi/arm-none-eabi-strip" }
 
-  compiler_flag: "--sysroot=external/org_linaro_components_toolchain_gcc_5_3_1/arm-linux-gnueabihf/libc"
-  compiler_flag: "-mfloat-abi=hard"
+#  compiler_flag: "--sysroot=external/toolchain_gcc_arm_none_darwin/arm-none-eabi/lib/libc"
+#  compiler_flag: "-mfloat-abi=hard"
 
-  compiler_flag: "-nostdinc"
-  compiler_flag: "-isystem"
-  compiler_flag: "external/org_linaro_components_toolchain_gcc_5_3_1/lib/gcc/arm-linux-gnueabihf/5.3.1/include"
-  compiler_flag: "-isystem"
-  compiler_flag: "external/org_linaro_components_toolchain_gcc_5_3_1/arm-linux-gnueabihf/libc/usr/include"
-  compiler_flag: "-isystem"
-  compiler_flag: "external/org_linaro_components_toolchain_gcc_5_3_1/lib/gcc/arm-linux-gnueabihf/5.3.1/include-fixed"
-  compiler_flag: "-isystem"
-  compiler_flag: "external/org_linaro_components_toolchain_gcc_5_3_1/arm-linux-gnueabihf/libc/usr/include"
-  cxx_flag: "-isystem"
-  cxx_flag: "external/org_linaro_components_toolchain_gcc_5_3_1/arm-linux-gnueabihf/include/c++/5.3.1/arm-linux-gnueabihf"
-  cxx_flag: "-isystem"
-  cxx_flag: "external/org_linaro_components_toolchain_gcc_5_3_1/arm-linux-gnueabihf/include/c++/5.3.1"
-  cxx_flag: "-isystem"
-  cxx_flag: "external/org_linaro_components_toolchain_gcc_5_3_1/include/c++/5.3.1/arm-linux-gnueabihf"
-  cxx_flag: "-isystem"
-  cxx_flag: "external/org_linaro_components_toolchain_gcc_5_3_1/include/c++/5.3.1"
+#  compiler_flag: "-nostdinc"
+#  compiler_flag: "-isystem"
+#  compiler_flag: "external/toolchain_gcc_arm_none_darwin/lib/gcc/arm-none-eabi/5.4.1/include"
+#  compiler_flag: "-isystem"
+#  compiler_flag: "external/toolchain_gcc_arm_none_darwin/arm-none-eabi/libc/usr/include"
+#  compiler_flag: "-isystem"
+#  compiler_flag: "external/toolchain_gcc_arm_none_darwin/lib/gcc/arm-none-eabi/5.4.1/include-fixed"
+#  compiler_flag: "-isystem"
+#  compiler_flag: "external/toolchain_gcc_arm_none_darwin/arm-none-eabi/libc/usr/include"
+#  compiler_flag: "-isystem"
+#  compiler_flag: "external/toolchain_gcc_arm_none_darwin/arm-none-eabi/include"
+#  cxx_flag: "-isystem"
+#  cxx_flag: "external/toolchain_gcc_arm_none_darwin/arm-none-eabi/include/c++/5.4.1/arm-none-eabi"
+#  cxx_flag: "-isystem"
+#  cxx_flag: "external/toolchain_gcc_arm_none_darwin/arm-none-eabi/include/c++/5.4.1"
+#  cxx_flag: "-isystem"
+#  cxx_flag: "external/toolchain_gcc_arm_none_darwin/include/c++/5.4.1/arm-none-eabi"
+#  cxx_flag: "-isystem"
+#  cxx_flag: "external/toolchain_gcc_arm_none_darwin/include/c++/5.4.1"
 
-  cxx_builtin_include_directory: "%package(@org_linaro_components_toolchain_gcc_5_3_1//include)%"
-  cxx_builtin_include_directory: "%package(@org_linaro_components_toolchain_gcc_5_3_1//arm-linux-gnueabihf/libc/usr/include)%"
-  cxx_builtin_include_directory: "%package(@org_linaro_components_toolchain_gcc_5_3_1//arm-linux-gnueabihf/libc/usr/lib/include)%"
-  cxx_builtin_include_directory: "%package(@org_linaro_components_toolchain_gcc_5_3_1//arm-linux-gnueabihf/libc/lib/gcc/arm-linux-gnueabihf/5.3.1/include-fixed)%"
-  cxx_builtin_include_directory: "%package(@org_linaro_components_toolchain_gcc_5_3_1//include)%/c++/5.3.1"
-  cxx_builtin_include_directory: "%package(@org_linaro_components_toolchain_gcc_5_3_1//arm-linux-gnueabihf/libc/lib/gcc/arm-linux-gnueabihf/5.3.1/include)%"
-  cxx_builtin_include_directory: "%package(@org_linaro_components_toolchain_gcc_5_3_1//arm-linux-gnueabihf/libc/lib/gcc/arm-linux-gnueabihf/5.3.1/include-fixed)%"
-  cxx_builtin_include_directory: "%package(@org_linaro_components_toolchain_gcc_5_3_1//lib/gcc/arm-linux-gnueabihf/5.3.1/include)%"
-  cxx_builtin_include_directory: "%package(@org_linaro_components_toolchain_gcc_5_3_1//lib/gcc/arm-linux-gnueabihf/5.3.1/include-fixed)%"
-  cxx_builtin_include_directory: "%package(@org_linaro_components_toolchain_gcc_5_3_1//arm-linux-gnueabihf/include)%/c++/5.3.1"
+#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//include)%"
+#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//arm-none-eabi/libc/usr/include)%"
+#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//arm-none-eabi/libc/usr/lib/include)%"
+#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//arm-none-eabi/libc/lib/gcc/arm-none-eabi/5.4.1/include-fixed)%"
+#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//include)%/c++/5.4.1"
+#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//arm-none-eabi/libc/lib/gcc/arm-none-eabi/5.4.1/include)%"
+#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//arm-none-eabi/libc/lib/gcc/arm-none-eabi/5.4.1/include-fixed)%"
+#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//lib/gcc/arm-none-eabi/5.4.1/include)%"
+#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//lib/gcc/arm-none-eabi/5.4.1/include-fixed)%"
+#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//arm-none-eabi/include)%/c++/5.4.1"
 
-  linker_flag: "--sysroot=external/org_linaro_components_toolchain_gcc_5_3_1/arm-linux-gnueabihf/libc"
+#  linker_flag: "--sysroot=external/toolchain_gcc_arm_none_darwin/arm-none-eabi/libc"
   linker_flag: "-lstdc++"
-  linker_flag: "-latomic"
+#  linker_flag: "-latomic"
   linker_flag: "-lm"
-  linker_flag: "-lpthread"
-  linker_flag: "-Ltools/arm_compiler/linaro_linux_gcc/clang_more_libs"
-  linker_flag: "-Lexternal/org_linaro_components_toolchain_gcc_5_3_1/arm-linux-gnueabihf/lib"
-  linker_flag: "-Lexternal/org_linaro_components_toolchain_gcc_5_3_1/arm-linux-gnueabihf/libc/lib"
-  linker_flag: "-Lexternal/org_linaro_components_toolchain_gcc_5_3_1/arm-linux-gnueabihf/libc/usr/lib"
-  linker_flag: "-Bexternal/org_linaro_components_toolchain_gcc_5_3_1/arm-linux-gnueabihf/bin"
-  linker_flag: "-Wl,--dynamic-linker=/lib/ld-linux-armhf.so.3"
-
+  linker_flag: "-lc"
+  linker_flag: "-lgcc"
+  linker_flag: "-lnosys"
+#  linker_flag: "-lpthread"
+#  linker_flag: "-Ltools/arm_compiler/gcc_arm_none/clang_more_libs"
+#  linker_flag: "-Lexternal/toolchain_gcc_arm_none_darwin/arm-none-eabi/lib"
+#  linker_flag: "-Lexternal/toolchain_gcc_arm_none_darwin/arm-none-eabi/libc/lib"
+#  linker_flag: "-Lexternal/toolchain_gcc_arm_none_darwin/arm-none-eabi/libc/usr/lib"
+#  linker_flag: "-Bexternal/toolchain_gcc_arm_none_darwin/arm-none-eabi/bin"
+#  linker_flag: "-Wl,--dynamic-linker=/lib/ld-linux-armhf.so.3"
+  linker_flag: "-Lexternal/toolchain_gcc_arm_none_darwin/lib/gcc/arm-none-eabi/5.4.1"
+  linker_flag: "-Lexternal/toolchain_gcc_arm_none_darwin/arm-none-eabi/lib"
   # Anticipated future default.
   # This makes GCC and Clang do what we want when called through symlinks.
   unfiltered_cxx_flag: "-no-canonical-prefixes"
@@ -112,9 +118,9 @@ toolchain {
   # Conservative choice; -D_FORTIFY_SOURCE=2 may be unsafe in some cases.
   # We need to undef it before redefining it as some distributions now have
   # it enabled by default.
-  compiler_flag: "-U_FORTIFY_SOURCE"
-  compiler_flag: "-fstack-protector"
-  compiler_flag: "-fPIE"
+#  compiler_flag: "-U_FORTIFY_SOURCE"
+#  compiler_flag: "-fstack-protector"
+#  compiler_flag: "-fPIE"
   linker_flag: "-pie"
   linker_flag: "-Wl,-z,relro,-z,now"
 
