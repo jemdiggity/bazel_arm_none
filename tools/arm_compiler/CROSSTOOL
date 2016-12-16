@@ -28,9 +28,9 @@ toolchain {
   supports_incremental_linker: false
   supports_fission: false
   supports_interface_shared_objects: false
-  supports_normalizing_ar: true
+  supports_normalizing_ar: false
   supports_start_end_lib: false
-  supports_thin_archives: true
+  supports_thin_archives: false
   target_libc: "glibc_2.19"
   target_cpu: "armeabi-v7a"
   target_system_name: "arm_a15"
@@ -52,56 +52,18 @@ toolchain {
   tool_path { name: "objdump" path: "arm_none_eabi/arm-none-eabi-objdump" }
   tool_path { name: "strip" path: "arm_none_eabi/arm-none-eabi-strip" }
 
-#  compiler_flag: "--sysroot=external/toolchain_gcc_arm_none_darwin/arm-none-eabi/lib/libc"
+
 #  compiler_flag: "-mfloat-abi=hard"
 
-#  compiler_flag: "-nostdinc"
-#  compiler_flag: "-isystem"
-#  compiler_flag: "external/toolchain_gcc_arm_none_darwin/lib/gcc/arm-none-eabi/5.4.1/include"
-#  compiler_flag: "-isystem"
-#  compiler_flag: "external/toolchain_gcc_arm_none_darwin/arm-none-eabi/libc/usr/include"
-#  compiler_flag: "-isystem"
-#  compiler_flag: "external/toolchain_gcc_arm_none_darwin/lib/gcc/arm-none-eabi/5.4.1/include-fixed"
-#  compiler_flag: "-isystem"
-#  compiler_flag: "external/toolchain_gcc_arm_none_darwin/arm-none-eabi/libc/usr/include"
-#  compiler_flag: "-isystem"
-#  compiler_flag: "external/toolchain_gcc_arm_none_darwin/arm-none-eabi/include"
-#  cxx_flag: "-isystem"
-#  cxx_flag: "external/toolchain_gcc_arm_none_darwin/arm-none-eabi/include/c++/5.4.1/arm-none-eabi"
-#  cxx_flag: "-isystem"
-#  cxx_flag: "external/toolchain_gcc_arm_none_darwin/arm-none-eabi/include/c++/5.4.1"
-#  cxx_flag: "-isystem"
-#  cxx_flag: "external/toolchain_gcc_arm_none_darwin/include/c++/5.4.1/arm-none-eabi"
-#  cxx_flag: "-isystem"
-#  cxx_flag: "external/toolchain_gcc_arm_none_darwin/include/c++/5.4.1"
+#  compiler_flag: "-v"
 
-#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//include)%"
-#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//arm-none-eabi/libc/usr/include)%"
-#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//arm-none-eabi/libc/usr/lib/include)%"
-#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//arm-none-eabi/libc/lib/gcc/arm-none-eabi/5.4.1/include-fixed)%"
-#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//include)%/c++/5.4.1"
-#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//arm-none-eabi/libc/lib/gcc/arm-none-eabi/5.4.1/include)%"
-#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//arm-none-eabi/libc/lib/gcc/arm-none-eabi/5.4.1/include-fixed)%"
-#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//lib/gcc/arm-none-eabi/5.4.1/include)%"
-#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//lib/gcc/arm-none-eabi/5.4.1/include-fixed)%"
-#  cxx_builtin_include_directory: "%package(@toolchain_gcc_arm_none_darwin//arm-none-eabi/include)%/c++/5.4.1"
-
-#  linker_flag: "--sysroot=external/toolchain_gcc_arm_none_darwin/arm-none-eabi/libc"
   linker_flag: "-lstdc++"
-#  linker_flag: "-latomic"
   linker_flag: "-lm"
-  linker_flag: "-lc"
-  linker_flag: "-lgcc"
+  linker_flag: "--specs=nosys.specs"
   linker_flag: "-lnosys"
-#  linker_flag: "-lpthread"
-#  linker_flag: "-Ltools/arm_compiler/gcc_arm_none/clang_more_libs"
-#  linker_flag: "-Lexternal/toolchain_gcc_arm_none_darwin/arm-none-eabi/lib"
-#  linker_flag: "-Lexternal/toolchain_gcc_arm_none_darwin/arm-none-eabi/libc/lib"
-#  linker_flag: "-Lexternal/toolchain_gcc_arm_none_darwin/arm-none-eabi/libc/usr/lib"
-#  linker_flag: "-Bexternal/toolchain_gcc_arm_none_darwin/arm-none-eabi/bin"
-#  linker_flag: "-Wl,--dynamic-linker=/lib/ld-linux-armhf.so.3"
-  linker_flag: "-Lexternal/toolchain_gcc_arm_none_darwin/lib/gcc/arm-none-eabi/5.4.1"
   linker_flag: "-Lexternal/toolchain_gcc_arm_none_darwin/arm-none-eabi/lib"
+  linker_flag: "-Bexternal/toolchain_gcc_arm_none_darwin/arm-none-eabi/bin"
+
   # Anticipated future default.
   # This makes GCC and Clang do what we want when called through symlinks.
   unfiltered_cxx_flag: "-no-canonical-prefixes"
@@ -118,9 +80,9 @@ toolchain {
   # Conservative choice; -D_FORTIFY_SOURCE=2 may be unsafe in some cases.
   # We need to undef it before redefining it as some distributions now have
   # it enabled by default.
-#  compiler_flag: "-U_FORTIFY_SOURCE"
-#  compiler_flag: "-fstack-protector"
-#  compiler_flag: "-fPIE"
+  compiler_flag: "-U_FORTIFY_SOURCE"
+  compiler_flag: "-fstack-protector"
+  compiler_flag: "-fPIE"
   linker_flag: "-pie"
   linker_flag: "-Wl,-z,relro,-z,now"
 
