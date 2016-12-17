@@ -4,7 +4,7 @@ default_target_cpu: "armeabi-v7a"
 
 default_toolchain {
   cpu: "armeabi-v7a"
-  toolchain_identifier: "gcc_arm_none_eabi"
+  toolchain_identifier: "armeabi-v7a"
 }
 
 default_toolchain {
@@ -21,20 +21,13 @@ toolchain {
   abi_version: "gcc"
   abi_libc_version: "glibc_2.19"
   builtin_sysroot: ""
-  compiler: "gcc"
+  compiler: "compiler"
   host_system_name: "armeabi-v7a"
   needsPic: true
-  supports_gold_linker: false
-  supports_incremental_linker: false
-  supports_fission: false
-  supports_interface_shared_objects: false
-  supports_normalizing_ar: false
-  supports_start_end_lib: false
-  supports_thin_archives: false
-  target_libc: "glibc_2.19"
+  target_libc: "armeabi-v7a"
   target_cpu: "armeabi-v7a"
-  target_system_name: "arm_a15"
-  toolchain_identifier: "gcc_arm_none_eabi"
+  target_system_name: "armeabi-v7a"
+  toolchain_identifier: "armeabi-v7a"
 
   tool_path { name: "ar" path: "arm_none_eabi/arm-none-eabi-ar" }
   tool_path { name: "compat-ld" path: "arm_none_eabi/arm-none-eabi-ld" }
@@ -51,7 +44,6 @@ toolchain {
   objcopy_embed_flag: "binary"
   tool_path { name: "objdump" path: "arm_none_eabi/arm-none-eabi-objdump" }
   tool_path { name: "strip" path: "arm_none_eabi/arm-none-eabi-strip" }
-
 
 #  compiler_flag: "-mfloat-abi=hard"
 
@@ -130,6 +122,7 @@ toolchain {
     compiler_flag: "-fdata-sections"
     linker_flag: "-Wl,--gc-sections"
   }
+  linking_mode_flags { mode: FULLY_STATIC }
 }
 
 toolchain {

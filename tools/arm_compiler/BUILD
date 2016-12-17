@@ -30,7 +30,7 @@ cc_toolchain_suite(
     name = "toolchain",
     # target_cpu | compiler
     toolchains = {
-        "armeabi-v7a|gcc": "cc-compiler-armeabi-v7a",
+        "armeabi-v7a|compiler": "cc-compiler-armeabi-v7a",
         "k8|compiler": "cc-compiler-k8",
 	"darwin|compiler": ":cc-compiler-darwin",
 
