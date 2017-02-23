@@ -1,3 +1,9 @@
+load("//:workspace.bzl", "check_version")
+# We must check the bazel version before trying to parse any other BUILD files,
+# in case the parsing of those build files depends on the bazel version we
+# require here.
+check_version("0.4.4")
+
 new_http_archive(
   name = 'toolchain_gcc_arm_none_darwin',
   build_file = 'compilers/gcc_arm_none.BUILD',
