@@ -45,10 +45,8 @@ toolchain {
   tool_path { name: "objdump" path: "arm_none_eabi/arm-none-eabi-objdump" }
   tool_path { name: "strip" path: "arm_none_eabi/arm-none-eabi-strip" }
 
-#  compiler_flag: "-mfloat-abi=hard"
-
-#  compiler_flag: "-v"
-  cxx_flag: "-std=c++14"
+  # compiler_flag: "-v"
+  # linker_flag: "-v"
 
   linker_flag: "-lstdc++"
   linker_flag: "-lm"
