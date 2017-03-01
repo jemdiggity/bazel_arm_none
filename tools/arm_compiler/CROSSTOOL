@@ -82,6 +82,7 @@ toolchain {
 
   # All warnings are enabled. Maybe enable -Werror as well?
   compiler_flag: "-Wall"
+  compiler_flag: "-Werror"
   # Enable a few more warnings that aren't part of -Wall.
   compiler_flag: "-Wunused-but-set-parameter"
   # But disable some that are problematic.
