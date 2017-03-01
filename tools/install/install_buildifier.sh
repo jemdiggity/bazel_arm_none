@@ -31,10 +31,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     rm -rf ${BUILDIFIER_DIR}
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
-    if [[ $(which brew) == "" ]]; then
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    fi
-
     #fixme buildifier formulae pull request pending from https://github.com/jemdiggity/homebrew-core
     brew install buildifier
     #don't fail if brew upgrade returns error which it does if we're already at the latest version

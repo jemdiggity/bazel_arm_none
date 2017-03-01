@@ -40,11 +40,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # Enable bazel auto completion.
     grep bazel-complete.bash ~/.bashrc && echo "source /usr/local/lib/bazel/bin/bazel-complete.bash" >> ~/.bashrc
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-        # Mac OSX
-    if [[ $(which brew) == "" ]]; then
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    fi
-
+    # Mac OSX
     brew install bazel
     #don't fail if bazel upgrade returns error which it does if we're already at the latest version
     set +e
