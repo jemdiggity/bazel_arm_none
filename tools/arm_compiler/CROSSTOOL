@@ -119,6 +119,7 @@ toolchain {
     # Removal of unused code and data at link time (can this increase binary size in some cases?).
     compiler_flag: "-ffunction-sections"
     compiler_flag: "-fdata-sections"
+    compiler_flag: "-fno-strict-aliasing"
     linker_flag: "-Wl,--gc-sections"
   }
   linking_mode_flags { mode: FULLY_STATIC }
