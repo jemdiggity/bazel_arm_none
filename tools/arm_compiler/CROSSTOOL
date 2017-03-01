@@ -48,7 +48,6 @@ toolchain {
   # compiler_flag: "-v"
   # linker_flag: "-v"
 
-  linker_flag: "-lstdc++"
   linker_flag: "-lm"
   linker_flag: "--specs=nosys.specs"
   linker_flag: "-lnosys"
