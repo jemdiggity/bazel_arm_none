@@ -23,7 +23,7 @@ toolchain {
   builtin_sysroot: ""
   compiler: "compiler"
   host_system_name: "armeabi-v7a"
-  needsPic: true
+  needsPic: false
   target_libc: "armeabi-v7a"
   target_cpu: "armeabi-v7a"
   target_system_name: "armeabi-v7a"
