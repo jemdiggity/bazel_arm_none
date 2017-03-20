@@ -1,3 +1,5 @@
+workspace(name = "com_github_jemdiggity_ble_proj")
+
 load("//:workspace.bzl", "check_version")
 # We must check the bazel version before trying to parse any other BUILD files,
 # in case the parsing of those build files depends on the bazel version we
