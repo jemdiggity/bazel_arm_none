@@ -49,8 +49,8 @@ toolchain {
   # linker_flag: "-v"
 
   linker_flag: "-lm"
-  linker_flag: "-Lexternal/toolchain_gcc_arm_none_darwin/arm-none-eabi/lib"
-  linker_flag: "-Bexternal/toolchain_gcc_arm_none_darwin/arm-none-eabi/bin"
+  linker_flag: "-Lexternal/toolchain_gcc_arm_none/arm-none-eabi/lib"
+  linker_flag: "-Bexternal/toolchain_gcc_arm_none/arm-none-eabi/bin"
 
   # Anticipated future default.
   # This makes GCC and Clang do what we want when called through symlinks.

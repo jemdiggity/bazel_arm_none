@@ -14,7 +14,7 @@ filegroup(
         ":cc-compiler-armeabi-v7a",
         ":cc-compiler-k8",
         ":gcc_arm_none_all_files",
-        "@toolchain_gcc_arm_none_darwin//:compiler_components",
+        "@toolchain_gcc_arm_none//:compiler_components",
     ],
 )
 
@@ -41,7 +41,7 @@ filegroup(
     name = "gcc_arm_none_all_files",
     srcs = [
         "//tools/arm_compiler/arm_none_eabi:tool-wrappers",
-        "@toolchain_gcc_arm_none_darwin//:compiler_pieces",
+        "@toolchain_gcc_arm_none//:compiler_pieces",
     ],
 )
 
@@ -51,7 +51,7 @@ filegroup(
         "//tools/arm_compiler/arm_none_eabi:ar",
         "//tools/arm_compiler/arm_none_eabi:gcc",
         "//tools/arm_compiler/arm_none_eabi:ld",
-        "@toolchain_gcc_arm_none_darwin//:compiler_pieces",
+        "@toolchain_gcc_arm_none//:compiler_pieces",
     ],
 )
 

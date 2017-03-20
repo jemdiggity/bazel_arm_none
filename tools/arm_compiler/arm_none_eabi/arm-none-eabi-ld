@@ -1,5 +1,5 @@
 #!/bin/bash --norc
 
 exec -a arm-none-eabi-ld \
-    external/toolchain_gcc_arm_none_darwin/bin/arm-none-eabi-ld \
+    external/toolchain_gcc_arm_none/bin/arm-none-eabi-ld \
     "$@"

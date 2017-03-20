@@ -1,6 +1,6 @@
 #!/bin/bash --norc
 
-PATH="external/toolchain_gcc_arm_none_darwin/arm-none-eabi/:$PATH" \
+PATH="external/toolchain_gcc_arm_none/arm-none-eabi/:$PATH" \
     exec \
-    external/toolchain_gcc_arm_none_darwin/bin/arm-none-eabi-gcc \
+    external/toolchain_gcc_arm_none/bin/arm-none-eabi-gcc \
     "$@"
