@@ -7,4 +7,13 @@ filegroup(
 cc_binary(
     name = "hello",
     srcs = ["hello.cc"],
+    linkopts = [
+        "-lc",
+        "-lstdc++",
+        "--specs=rdimon.specs",
+        "-Wl,--start-group",
+        "-lgcc",
+        "-lrdimon",
+        "-Wl,--end-group",
+    ],
 )
