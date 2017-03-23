@@ -32,8 +32,7 @@ cc_toolchain_suite(
     toolchains = {
         "armeabi-v7a|compiler": "cc-compiler-armeabi-v7a",
         "k8|compiler": "cc-compiler-k8",
-	"darwin|compiler": ":cc-compiler-darwin",
-
+        "darwin|compiler": ":cc-compiler-darwin",
     },
 )
 
@@ -111,4 +110,3 @@ cc_toolchain(
     strip_files = ":empty",
     supports_param_files = 0,
 )
-
